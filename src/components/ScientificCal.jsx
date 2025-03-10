@@ -45,7 +45,7 @@ const ScientificCalculator = () => {
 
       setLastAns(evalResult);
       setResult(evalResult);
-      setInput(""); // Clear input after result
+      setInput(evalResult); // Clear input after result
     } catch {
       setResult("Error");
       setInput("Error");

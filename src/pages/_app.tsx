@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:description" content="A platform for students to access calculators and writing tools." />
         <meta property="og:image" content="/logo.png" />
         <meta property="og:url" content="https://studentwritinghelper.com" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any"/>
       </Head>
       <Header/>
       {loading && <Loader />}

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const OurVision = () => {
   return (
-    <section className="py-20 px-6 bg-gray-900 flex justify-center">
+    <section className="py-20 px-6 bg-gray-900 flex justify-center hidden">
       <div className="container mx-auto text-white flex flex-col gap-8 md:flex-row justify-center items-center max-w-6xl">
                 <div className="w-full flex justify-center md:w-1/3">
           <Image
