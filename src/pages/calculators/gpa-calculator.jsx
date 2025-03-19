@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 const GPACalculator = () => {
   const [grades, setGrades] = useState([
-    { course: "", credits: "", grade: "" }
+    { course: "", credits: "", grade: "" },
+    { course: "", credits: "", grade: "" },
+    { course: "", credits: "", grade: "" },
   ]);
   const [gpa, setGPA] = useState(null);
   const [includePrevGPA, setIncludePrevGPA] = useState(false);
@@ -32,50 +34,48 @@ const GPACalculator = () => {
     let totalPoints = 0;
     let newErrors = [];
     let hasError = false;
-
-    // Reset errors before validation
+  
     let prevErr = {};
-
-    grades.forEach(({ course, credits, grade }) => {
-      let rowErrors = { course: "", credits: "", grade: "" };
-
-      // Validation
-      if (!course.trim()) {
-        rowErrors.course = "Course name is required.";
+  
+    grades.forEach(({ credits, grade }, index) => {
+      let rowErrors = { credits: "", grade: "" };
+  
+      const validCredits = credits.trim();
+      const validGrade = grade.trim();
+  
+      if (validCredits === "" || validGrade === "") {
+        return;
+      }
+  
+      if (validCredits === "" || isNaN(validCredits) || parseFloat(validCredits) < 0) {
+        rowErrors.credits = "Invalid credits.";
         hasError = true;
       }
-      if (!credits.trim()) {
-        rowErrors.credits = "Credits are required.";
+  
+      if (validGrade === "" || gradePoints[validGrade] === undefined) {
+        rowErrors.grade = "Invalid grade.";
         hasError = true;
       }
-      if (!grade.trim()) {
-        rowErrors.grade = "Grade is required.";
-        hasError = true;
-      }
-
-      newErrors.push(rowErrors);
-
-      // Accumulate credits and grade points only if valid
-      if (
-        credits.trim() &&
-        !isNaN(credits) &&
-        gradePoints[grade] !== undefined
-      ) {
-        totalCredits += parseFloat(credits);
-        totalPoints += parseFloat(credits) * gradePoints[grade];
+  
+      newErrors[index] = rowErrors;
+  
+      if (!hasError) {
+        totalCredits += parseFloat(validCredits);
+        totalPoints += parseFloat(validCredits) * gradePoints[validGrade];
       }
     });
-
+  
     // Handle Previous GPA if included
     if (includePrevGPA) {
       if (!prevGPA.trim()) {
-        prevErr.prevGPA = "Previous GPA is required.";
+        prevErr.prevGPA = "Current CGPA is required.";
         hasError = true;
       }
       if (!prevCredits.trim()) {
-        prevErr.prevCredits = "Previous credits are required.";
+        prevErr.prevCredits = "Total credits studied required.";
         hasError = true;
       }
+  
       if (
         prevGPA.trim() &&
         !isNaN(prevGPA) &&
@@ -86,18 +86,19 @@ const GPACalculator = () => {
         totalPoints += parseFloat(prevCredits) * parseFloat(prevGPA);
       }
     }
-
+  
     setErrors(newErrors);
     setPrevErrors(prevErr);
-
+  
     // Final GPA calculation
-    if (!hasError) {
-      const finalGPA = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "0.00";
-      setGPA(finalGPA);
+    if (!hasError && totalCredits > 0) {
+      setGPA((totalPoints / totalCredits).toFixed(2));
     } else {
-      setGPA(null); // Clear GPA if there's an error
+      setGPA(null);
     }
   };
+  
+
   const handleChange = (index, field, value) => {
     const newGrades = [...grades];
     const newErrors = [...errors];
@@ -125,12 +126,13 @@ const GPACalculator = () => {
         The Grade Point Average (GPA) is a widely used metric for assessing academic performance. It is calculated by averaging the grades earned in courses while considering the assigned credit hours.
       </p>
 
-      <table className="w-full border-collapse border border-gray-300 mb-4 max-w-[400px]">
+      <div className="overflow-auto w-full">
+      <table className="w-full table-fixed border-collapse mb-4  max-w-[400px]">
         <thead>
           <tr className="bg-gray-200">
-            <th className="border border-gray-300 px-4 py-2">Course</th>
-            <th className="border border-gray-300 px-4 py-2">Credits</th>
-            <th className="border border-gray-300 px-4 py-2">Grade</th>
+            <th className="border border-gray-300 w-1/4 px-1 py-1">Course</th>
+            <th className="border border-gray-300 w-1/4 px-1 py-1">Credits</th>
+            <th className="border border-gray-300 w-1/4 px-1 py-1">Grade</th>
           </tr>
         </thead>
         <tbody>
@@ -141,30 +143,40 @@ const GPACalculator = () => {
                   type="text"
                   value={row.course}
                   onChange={(e) => handleChange(index, "course", e.target.value)}
-                  className="w-full p-2 border rounded"
+                  className="w-full text-sm focus:outline-none"
                   placeholder="Course"
+                  maxLength={20}
                 />
-                {errors[index]?.course && (
-                    <p className="text-red-500 text-sm">{errors[index].course}</p>
-                  )}
               </td>
               <td className="border border-gray-300 px-2 py-2">
                 <input
                   type="number"
                   value={row.credits}
                   onChange={(e) => handleChange(index, "credits", e.target.value)}
-                  className="w-full p-2 border rounded"
+                  className="w-full text-sm focus:outline-none"
                   placeholder="Credits"
+                  onInput={(e) => {
+                    if (e.target.value.length > 2) {
+                      e.target.value = e.target.value.slice(0, 2);
+                    }
+                  }}
+                  min="0"
+                  max="99"
+                  onKeyDown={(e) => {
+                    if (e.key === "e" || e.key === "+" || e.key === "-") {
+                      e.preventDefault(); 
+                    }
+                  }}
                 />
                 {errors[index]?.credits && (
-                    <p className="text-red-500 text-sm">{errors[index].credits}</p>
+                    <p className="text-red-500 text-xs mt-1">{errors[index].credits}</p>
                   )}
               </td>
               <td className="border border-gray-300 px-2 py-2">
                 <select
                   value={row.grade}
                   onChange={(e) => handleChange(index, "grade", e.target.value)}
-                  className="w-full p-2 border rounded"
+                  className="w-full text-sm focus:outline-none"
                 >
                   <option value="">Grade</option>
                   {Object.keys(gradePoints).map((grade) => (
@@ -174,33 +186,34 @@ const GPACalculator = () => {
                   ))}
                 </select>
                 {errors[index]?.grade && (
-                    <p className="text-red-500 text-sm">{errors[index].grade}</p>
+                    <p className="text-red-500 text-xs mt-1">{errors[index].grade}</p>
                   )}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+        </div>
 
-      <label className="flex items-center mb-4 cursor-pointer w-fit ">
+      <label className="flex items-center mb-4 w-fit cursor-pointer text-sm">
         <input
           type="checkbox"
           checked={includePrevGPA}
           onChange={() => setIncludePrevGPA(!includePrevGPA)}
-          className="mr-2"
+          className="mr-2 w-4 h-4"
         />
-        Include Previous Semester GPA
+        Calculate Overall CGPA
       </label>
 
       {includePrevGPA && (
-        <div className="flex gap-5 mb-4">
+        <div className="grid grid-cols-2 gap-2 mb-4 max-w-[400px]">
           <div>
           <input
             type="number"
-            placeholder="Previous GPA"
+            placeholder="Current CGPA"
             value={prevGPA}
             onChange={(e) => setPrevGPA(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="border rounded w-full text-sm p-2"
           />
           {prevErrors.prevGPA && (
                 <p className="text-red-500 text-sm">{prevErrors.prevGPA}</p>
@@ -209,10 +222,10 @@ const GPACalculator = () => {
               <div>
           <input
             type="number"
-            placeholder="Previous Semester Credits"
+            placeholder="Credits Done"
             value={prevCredits}
             onChange={(e) => setPrevCredits(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="border rounded w-full text-sm p-2"
           />
                         {prevErrors.prevCredits && (
                 <p className="text-red-500 text-sm">{prevErrors.prevCredits}</p>
@@ -221,20 +234,22 @@ const GPACalculator = () => {
         </div>
       )}
 
+<div className="flex gap-2">
       <button
         onClick={addRow}
-        className="bg-gray-900 hover:bg-gray-700 text-white px-4 py-2 rounded-md mr-2 mb-4 cursor-pointer"
+        className="bg-gray-900 hover:bg-gray-700 text-white text-sm px-3 py-3 rounded-md cursor-pointer"
       >
         Add Course
       </button>
       <button
         onClick={calculateGPA}
-        className="bg-green-500 hover:bg-green-900 text-white px-4 py-2 rounded-md cursor-pointer"
+        className="bg-green-500 hover:bg-green-700 text-white text-sm px-3 py-3 rounded-md cursor-pointer"
       >
         Calculate GPA
       </button>
+</div>      
       {gpa && (
-        <div className="mt-4 p-4 bg-gray-900 text-white font-bold rounded">
+        <div className="mt-4 p-3 bg-gray-900 text-white text-sm font-bold rounded max-w-[400px]">
           Your GPA: {gpa}
         </div>
       )}
@@ -279,7 +294,7 @@ const GPACalculator = () => {
       <td>Math</td>
       <td className="cinfoBodL">4</td>
       <td className="cinfoBodL">A+</td>
-      <td className="cinfoBodL">4 x 4.3 = 17.2</td>
+      <td className="cinfoBodL">4 x 4 = 16</td>
     </tr>
     <tr>
       <td>Physics</td>
