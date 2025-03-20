@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calculator, BarChart, Binary } from "lucide-react";
+import { Calculator, BarChart, Binary, ChartColumnIncreasing } from "lucide-react";
 
 const calculators = [
   {
@@ -15,10 +15,16 @@ const calculators = [
     icon: <Calculator size={40} className="text-blue-400" />,
   },
   {
-    name: "Programmer's Base Converter",
-    description: "Binary to Decimal & Decimal to Binary Converter.",
-    link: "/calculators/base-converter",
+    name: "Binary to Decimal Converter",
+    description: "Binary to Hexa, Octal and Decimal Converter.",
+    link: "/calculators/binary-to-decimal-converter",
     icon: <Binary size={40} className="text-yellow-500" />,
+  },
+  {
+    name: "Mean, Median, Mode",
+    description: "Find the mean, median and modes using graphs.",
+    link: "/calculators/mean-median-mode-calculator",
+    icon: <ChartColumnIncreasing size={40} className="text-gray-500" />,
   },
 ];
 

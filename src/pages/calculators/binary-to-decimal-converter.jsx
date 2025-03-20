@@ -100,7 +100,7 @@ const AllInOneConverter = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
     <div className="max-w-4xl p-6 space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">Programmer's Base Converter</h1>
+      <h1 className="text-3xl font-bold text-gray-800">Binary to Decimal Converter</h1>
       <p className="text-gray-600">Easily convert between Binary, Decimal, Hexadecimal, and Octal formats.</p>
 
       {/* Fields */}
