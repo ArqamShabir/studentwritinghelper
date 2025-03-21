@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calculator, BarChart, Binary, ChartColumnIncreasing } from "lucide-react";
+import { Calculator, BarChart, Binary, ChartColumnIncreasing, SquareRadical } from "lucide-react";
 
 const calculators = [
   {
@@ -21,11 +21,18 @@ const calculators = [
     icon: <Binary size={40} className="text-yellow-500" />,
   },
   {
+    name: "Standard Deviation Calculator",
+    description: "Find standard deviation using population/sample",
+    link: "/calculators/standard-deviation-calculator",
+    icon: <SquareRadical size={40} className="text-purple-500" />,
+  },
+  {
     name: "Mean, Median, Mode",
     description: "Find the mean, median and modes using graphs.",
     link: "/calculators/mean-median-mode-calculator",
-    icon: <ChartColumnIncreasing size={40} className="text-gray-500" />,
+    icon: <ChartColumnIncreasing  size={40} className="text-gray-900" />,
   },
+ 
 ];
 
 const FeaturedCalculators = () => {
