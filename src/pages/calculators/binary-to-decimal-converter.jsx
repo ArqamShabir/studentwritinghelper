@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
 const AllInOneConverter = () => {
   const [binary, setBinary] = useState("");
@@ -99,9 +100,48 @@ const AllInOneConverter = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
+      <Head>
+  <title>Binary to Decimal, Hex, and Octal Converter | All-in-One Tool</title>
+  <meta name="description" content="Easily convert between Binary, Decimal, Hexadecimal, and Octal number systems. Free online number system converter for students and developers." />
+  <meta name="keywords" content="binary converter, decimal to binary, hex converter, octal converter, number system converter, free tool" />
+  <meta name="author" content="Student Writing Helper" />
+
+  {/* Open Graph for Social Media */}
+  <meta property="og:title" content="Binary to Decimal, Hex, and Octal Converter" />
+  <meta property="og:description" content="Convert between Binary, Decimal, Hex, and Octal easily with this free online tool." />
+  <meta property="og:image" content="/images/converter-preview.png" /> {/* Add a preview image */}
+  <meta property="og:url" content="https://studentwritinghelper.com/calculators/binary-to-decimal-converter" />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Binary to Decimal, Hex, and Octal Converter" />
+  <meta name="twitter:description" content="Convert between Binary, Decimal, Hex, and Octal easily with this free online tool." />
+  <meta name="twitter:image" content="/images/converter-preview.png" />
+
+  {/* Canonical URL for SEO */}
+  <link rel="canonical" href="https://studentwritinghelper.com/calculators/binary-to-decimal-converter" />
+
+  <script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Binary to Decimal, Hex, and Octal Converter",
+  "url": "https://studentwritinghelper.com/converter",
+  "description": "Free online tool to convert numbers between Binary, Decimal, Hexadecimal, and Octal formats.",
+  "image": "https://studentwritinghelper.com/images/converter-preview.png",
+  "author": {
+    "@type": "Person",
+    "name": "Student Writing Helper"
+  }
+})}
+</script>
+
+</Head>
+
     <div className="max-w-4xl p-6 space-y-6">
       <h1 className="text-3xl font-bold text-gray-800">Binary to Decimal Converter</h1>
-      <p className="text-gray-600">Easily convert between Binary, Decimal, Hexadecimal, and Octal formats.</p>
+      <h2 className="text-gray-600">Easily convert between Binary, Decimal, Hexadecimal, and Octal formats.</h2>
 
       {/* Fields */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -204,7 +244,7 @@ const AllInOneConverter = () => {
         </button>
       </div>
       <div className="mt-12 space-y-6 text-gray-800 leading-7">
-        <h2 className="text-2xl font-semibold">What is a Binary to Decimal, Hex, and Octal Converter?</h2>
+        <h3 className="text-2xl font-semibold">What is a Binary to Decimal, Hex, and Octal Converter?</h3>
         <p>
           Our Binary to Decimal, Hexadecimal, and Octal Converter is an essential online tool for anyone working with different number systems. Whether you are a student, programmer, or tech enthusiast, this tool helps you convert numbers quickly and accurately between Binary (Base-2), Decimal (Base-10), Hexadecimal (Base-16), and Octal (Base-8).
         </p>

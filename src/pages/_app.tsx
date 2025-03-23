@@ -30,14 +30,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return(<>
         <Head>
-        <title>Student Writing Helper</title>
-        <meta name="description" content="A platform for students to access calculators, paraphrasing tools, and more." />
-        <meta property="og:title" content="Student Writing Helper" />
-        <meta property="og:description" content="A platform for students to access calculators and writing tools." />
-        <meta property="og:image" content="/logo.png" />
-        <meta property="og:url" content="https://studentwritinghelper.com" />
-        <link rel="icon" href="/favicon.ico" sizes="any"/>
-      </Head>
+  <title>Online Calculators - GPA, Scientific, and More | Student Writing Helper</title>
+  <meta 
+    name="description" 
+    content="Access free online calculators, including GPA calculators, scientific calculators, and more. Simple, accurate, and fast calculations for students." 
+  />
+  <meta property="og:title" content="Online Calculators - GPA, Scientific, and More" />
+  <meta property="og:description" content="Get accurate GPA and scientific calculations with our free online tools. Fast, reliable, and easy to use!" />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:url" content="https://studentwritinghelper.com" />
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+</Head>
       <Header/>
       {loading && <Loader />}
       <Component {...pageProps} />

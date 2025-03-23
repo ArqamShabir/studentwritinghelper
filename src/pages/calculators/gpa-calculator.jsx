@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
 const GPACalculator = () => {
   const [grades, setGrades] = useState([
@@ -120,7 +121,19 @@ const GPACalculator = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
-    <div className="flex-1 p-6 bg-white">
+       <Head>
+        <title>GPA Calculator - Free Online GPA Calculator</title>
+        <meta
+          name="description"
+          content="Easily calculate your GPA with our free online GPA calculator. Enter your grades and credits to get an accurate GPA instantly."
+        />
+        <meta property="og:title" content="GPA Calculator - Free Online GPA Calculator" />
+        <meta property="og:description" content="Enter your grades and credits to calculate your GPA accurately and quickly." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://studentwritinghelper.com/gpa-calculator" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+    <main className="flex-1 p-6 bg-white">
       <h1 className="text-3xl font-bold mb-4">GPA Calculator</h1>
       <p className="mb-4 text-gray-700">
         The Grade Point Average (GPA) is a widely used metric for assessing academic performance. It is calculated by averaging the grades earned in courses while considering the assigned credit hours.
@@ -382,7 +395,7 @@ const GPACalculator = () => {
 <p>Another key aspect of time management is reviewing your work regularly. Instead of cramming everything right before an exam, spreading out your study sessions over time is usually more effective. Periodic review of the material will help reinforce what you’ve learned, save you time, and improve your performance on exams, leading to a better GPA.</p>
 
       </div>
-    </div>
+    </main>
     <div className="w-full lg:w-1/4  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
         <h2 className="text-xl font-semibold mb-4">Recommended Calculators</h2>
         <ul className="space-y-2 text-blue-600">

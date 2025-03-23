@@ -1,5 +1,6 @@
     import { useState } from "react";
     import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from "recharts";
+    import Head from "next/head";
 
     export default function MeanMedianModeCalculator() {
     const [numbers, setNumbers] = useState("");
@@ -48,6 +49,18 @@
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
+          <Head>
+        <title>Mean, Median, Mode Calculator - Free Online Tool</title>
+        <link rel="canonical" href="https://studentwritinghelper.com/calculators/mean-median-mode-calculator" />
+        <meta 
+          name="description" 
+          content="Calculate mean, median, mode, range, and geometric mean easily with our online Mean, Median, Mode Calculator. Get instant results with a user-friendly interface." 
+        />
+          <meta name="keywords" content="binary converter, decimal to binary, hex converter, octal converter, number system converter, free tool" />
+          <meta name="author" content="Student Writing Helper" />
+
+        
+      </Head>
         <div className="p-6 w-full max-w-2xl">
           <h1 className="text-2xl font-bold md:text-3xl">Mean, Median, Mode Calculator</h1>
           <div className="py-6 bg-white">
@@ -110,13 +123,13 @@
             </div>
           )}
           <div className="py-4">
-      <h1 className="text-[1.75rem] font-bold text-gray-800 mb-6 md:text-3xl">
+      <h2 className="text-[1.75rem] font-bold text-gray-800 mb-6 md:text-3xl">
         Understanding Mean, Median, Mode, and Range in Statistics
-      </h1>
+      </h2>
       
       {/* Mean Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">What is Mean?</h2>
+        <h3 className="text-2xl font-semibold text-gray-700 mb-4">What is Mean?</h3>
         <p className="text-gray-600 leading-relaxed">
           The term <strong>mean</strong> is widely used in mathematics and statistics. It refers to the
           <strong> arithmetic mean</strong>, commonly known as the average. The arithmetic mean of a data set
@@ -135,7 +148,7 @@
       
       {/* Median Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">What is Median?</h2>
+        <h3 className="text-2xl font-semibold text-gray-700 mb-4">What is Median?</h3>
         <p className="text-gray-600 leading-relaxed">
           The <strong>median</strong> is the middle value in a sorted data set. If the number of values is odd,
           the median is the middle value. If it is even, the median is the average of the two middle values.
@@ -151,7 +164,7 @@
       
       {/* Mode Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">What is Mode?</h2>
+        <h3 className="text-2xl font-semibold text-gray-700 mb-4">What is Mode?</h3>
         <p className="text-gray-600 leading-relaxed">
           The <strong>mode</strong> represents the value that appears most frequently in a data set.
           A data set can be unimodal (one mode), bimodal (two modes), or multimodal (more than two modes).
@@ -164,7 +177,7 @@
       
       {/* Range Section */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">What is Range?</h2>
+        <h3 className="text-2xl font-semibold text-gray-700 mb-4">What is Range?</h3>
         <p className="text-gray-600 leading-relaxed">
           The <strong>range</strong> is the difference between the highest and lowest values in a data set.
           It provides insight into the spread of the values.
@@ -182,7 +195,7 @@
     </div>
           </div>
             <div className="w-full lg:w-1/2  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
-        <h2 className="text-xl font-semibold mb-4">Recommended Calculators</h2>
+        <h3 className="text-xl font-semibold mb-4">Recommended Calculators</h3>
         <ul className="space-y-2 text-blue-600">
           <li><a href="#" className="hover:underline">CGPA Calculator</a></li>
           <li><a href="#" className="hover:underline">Weighted GPA Calculator</a></li>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from 'next/image';
+import Head from "next/head";
 
 export default function Calculator() {
   const [numbers, setNumbers] = useState("");
@@ -133,8 +134,15 @@ export default function Calculator() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
-    <div className="max-w-lg w-full p-5 bg-white">
-      <h2 className="text-2xl font-semibold mb-4">Standard Deviation Calculator</h2>
+      <Head>
+  <title>Standard Deviation Calculator - Quick & Accurate</title>
+  <meta name="description" content="Easily calculate population and sample standard deviation with step-by-step explanations. Enter your numbers and get accurate results instantly!" />
+  <meta name="keywords" content="standard deviation calculator, variance calculator, mean deviation, statistics, data analysis" />
+  <link rel="canonical" href="https://studentwritinghelper.com/calculators/standard-deviation-calculator" />
+
+</Head>
+    <main className="max-w-lg w-full p-5 bg-white">
+      <h1 className="text-2xl font-semibold mb-4">Standard Deviation Calculator</h1>
       <input
         type="text"
         placeholder="Enter numbers, comma-separated"
@@ -196,7 +204,7 @@ export default function Calculator() {
         </div>
       )}
       <div className="max-w-3xl mx-auto py-6 text-gray-800">
-      <h1 className="text-2xl font-bold mb-6">Understanding Standard Deviation</h1>
+      <h2 className="text-2xl font-bold mb-6">Understanding Standard Deviation</h2>
       <p className="mb-4">
         Standard deviation, commonly represented as <b>&#963;</b>, is a statistical measure that quantifies how much individual values in a dataset deviate from the mean (<b>&mu;</b>). A smaller standard deviation means data points are closer to the mean, while a larger one indicates greater variability. It plays a crucial role in fields like finance, quality control, and scientific research.
       </p>
@@ -207,7 +215,7 @@ export default function Calculator() {
       </p>
       
       <div className="flex py-4">
-        <Image src="/sd1.jpg" width={200} height={70} alt="Population Standard Deviation Equation" />
+        <Image src="/sd1.jpg" width={200} height={70} alt="Population Standard Deviation Formula" loading="lazy" />
       </div>
 
       <p className="mt-4">Where:</p>
@@ -232,7 +240,7 @@ export default function Calculator() {
       </p>
       
       <div className="flex py-4">
-        <Image src="/sd2.jpg" width={220} height={80} alt="Sample Standard Deviation Equation" />
+        <Image src="/sd2.jpg" width={220} height={80} alt="Sample Standard Deviation Formula" loading="lazy" />
       </div>
 
       <p className="mt-4">Where:</p>
@@ -256,7 +264,7 @@ export default function Calculator() {
         Understanding standard deviation helps in making data-driven decisions, offering insights into variability, predictability, and trends within datasets.
       </p>
     </div>
-    </div>
+    </main>
     <div className="w-full lg:w-1/2  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
         <h2 className="text-xl font-semibold mb-4">Recommended Calculators</h2>
         <ul className="space-y-2 text-blue-600">
