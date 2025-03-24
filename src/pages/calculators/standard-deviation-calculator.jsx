@@ -135,7 +135,7 @@ export default function Calculator() {
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
       <Head>
-  <title>Standard Deviation Calculator - Quick & Accurate</title>
+  <title>Standard Deviation Calculator - Quick & Accurate With Steps</title>
   <meta name="description" content="Easily calculate population and sample standard deviation with step-by-step explanations. Enter your numbers and get accurate results instantly!" />
   <meta name="keywords" content="standard deviation calculator, variance calculator, mean deviation, statistics, data analysis" />
   <link rel="canonical" href="https://studentwritinghelper.com/calculators/standard-deviation-calculator" />
