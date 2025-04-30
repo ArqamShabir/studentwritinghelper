@@ -24,7 +24,7 @@ function Header() {
         
         <nav style={{top:'0',boxShadow:'0 1px 2px rgba(0, 0, 0, 0.1)'}} className="flex items-center bg-[#1E293B] text-white justify-between mx-auto w-full max-w-[1440px] px-6 lg:px-20 3xl:px-0 sticky z-30 py-4">
         <Link href="/" style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <img src="/logo2.png" alt="logo" width={80} /> 
+            <img src="/logo2.png" alt="logo" width={60} /> 
             <h2 className="text-[20px] tracking-[1px] font-[600]">SWH</h2>
         </Link>
 
@@ -59,7 +59,7 @@ function Header() {
           }}
         >
           <Link href="/" >
-            <img src="/logo2.png" alt="logo" width={60} />
+            <img src="/logo2.png" alt="logo" width={40} />
           </Link>
           <button onClick={toggleSidebar} className="text-white mb-4">
             <Image src="/close.svg" alt="close" width={32} height={32} />
