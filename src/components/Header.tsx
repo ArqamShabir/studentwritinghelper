@@ -23,8 +23,9 @@ function Header() {
         {/* Desktop Start */}
         
         <nav style={{top:'0',boxShadow:'0 1px 2px rgba(0, 0, 0, 0.1)'}} className="flex items-center bg-[#1E293B] text-white justify-between mx-auto w-full max-w-[1440px] px-6 lg:px-20 3xl:px-0 sticky z-30 py-4">
-        <Link href="/">
-            <img src="/logo2.png" alt="logo" width={80} />
+        <Link href="/" style={{display:'flex',alignItems:'center',gap:'10px'}}>
+            <img src="/logo2.png" alt="logo" width={80} /> 
+            <h2 className="text-[20px] tracking-[1px] font-[600]">SWH</h2>
         </Link>
 
         <ul className="hidden h-full gap-12 lg:flex">
@@ -58,7 +59,7 @@ function Header() {
           }}
         >
           <Link href="/" >
-            <img src="/logo2.png" alt="logo" width={80} />
+            <img src="/logo2.png" alt="logo" width={60} />
           </Link>
           <button onClick={toggleSidebar} className="text-white mb-4">
             <Image src="/close.svg" alt="close" width={32} height={32} />
@@ -86,8 +87,8 @@ function Header() {
         <Image
           src="/menu.png"
           alt="menu"
-          width={32}
-          height={32}
+          width={22}
+          height={22}
           className="inline-block cursor-pointer"
           onClick={toggleSidebar}
         />
