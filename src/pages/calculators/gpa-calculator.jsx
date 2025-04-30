@@ -132,6 +132,7 @@ const GPACalculator = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://studentwritinghelper.com/gpa-calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-adsense-account" content="ca-pub-2897420441745530"/>
       </Head>
     <main className="flex-1 p-6 bg-white">
       <h1 className="text-3xl font-bold mb-4">GPA Calculator</h1>

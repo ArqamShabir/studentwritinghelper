@@ -112,6 +112,7 @@ const AllInOneConverter = () => {
   <meta property="og:image" content="/images/converter-preview.png" /> {/* Add a preview image */}
   <meta property="og:url" content="https://studentwritinghelper.com/calculators/binary-to-decimal-converter" />
   <meta property="og:type" content="website" />
+  <meta name="google-adsense-account" content="ca-pub-2897420441745530"/>
 
   {/* Twitter Meta Tags */}
   <meta name="twitter:card" content="summary_large_image" />

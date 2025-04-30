@@ -58,7 +58,7 @@
         />
           <meta name="keywords" content="binary converter, decimal to binary, hex converter, octal converter, number system converter, free tool" />
           <meta name="author" content="Student Writing Helper" />
-
+          <meta name="google-adsense-account" content="ca-pub-2897420441745530" />
         
       </Head>
         <div className="p-6 w-full max-w-2xl">

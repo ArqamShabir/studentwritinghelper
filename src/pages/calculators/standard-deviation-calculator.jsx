@@ -139,7 +139,7 @@ export default function Calculator() {
   <meta name="description" content="Easily calculate population and sample standard deviation with step-by-step explanations. Enter your numbers and get accurate results instantly!" />
   <meta name="keywords" content="standard deviation calculator, variance calculator, mean deviation, statistics, data analysis" />
   <link rel="canonical" href="https://studentwritinghelper.com/calculators/standard-deviation-calculator" />
-
+  <meta name="google-adsense-account" content="ca-pub-2897420441745530"/>
 </Head>
     <main className="max-w-lg w-full p-5 bg-white">
       <h1 className="text-2xl font-semibold mb-4">Standard Deviation Calculator</h1>
