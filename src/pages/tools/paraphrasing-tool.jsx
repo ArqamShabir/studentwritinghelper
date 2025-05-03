@@ -56,8 +56,8 @@ const Paraphraser = () => {
   return (
     <>
       <Head>
-        <title>Paraphrasing Tool | No Login Required</title>
-        <meta name="title" content="Paraphrasing Tool | No Login Required" />
+        <title>Paraphrasing Tool | No Login SignUp Required</title>
+        <meta name="title" content="Paraphrasing Tool | No Login SignUp Required" />
         <meta name="description" content="Use our free AI-powered Paraphrasing Tool to rewrite text in a smarter and clearer way.No Login or Sign Up is required." />
         <meta name="keywords" content="paraphrasing tool, ai rewriter, text paraphraser, content spinner, rephrase online" />
         <link rel="canonical" href="https://studentwritinghelper.com/tools/paraphrasing-tool" />
