@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return(<>
         <Head>
-  <title>Online Calculators - GPA, Scientific, and More | Student Writing Helper</title>
+  <title>Online Calculators - GPA, Scientific, and More</title>
   <meta 
     name="description" 
     content="Access free online calculators, including GPA calculators, scientific calculators, and more. Simple, accurate, and fast calculations for students." 
