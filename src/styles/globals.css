@@ -80,9 +80,13 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f1ea;
+  color: #141414;
+  font-family: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fraunces), "Georgia", serif;
+  letter-spacing: -0.02em;
 }
 *{
   scroll-behavior: smooth;
@@ -161,4 +165,43 @@ table.cinfoT th,table.cinfoT td.cinfoHd, table.cinfoT td.cinfoHdL {
 }
 .recharts-default-legend{
   display: none;
+}
+
+@layer utilities {
+  .bg-sand-50 {
+    background-color: #f6f1ea;
+  }
+  .bg-sand-100 {
+    background-color: #efe6db;
+  }
+  .border-sand-200 {
+    border-color: #e2d2bf;
+  }
+  .bg-ink-900 {
+    background-color: #141414;
+  }
+  .text-sand-100 {
+    color: #f3e9de;
+  }
+  .shadow-soft {
+    box-shadow: 0 24px 60px rgba(20, 20, 20, 0.08);
+  }
+  .shadow-card {
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  }
+  .text-ink-900 {
+    color: #141414;
+  }
+  .text-ink-600 {
+    color: #475467;
+  }
+  .bg-aurora {
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(246, 241, 234, 0.7)),
+      linear-gradient(120deg, #f6f1ea 0%, #f3e0cc 40%, #e8d4ff 100%);
+  }
+  .bg-grid {
+    background-image: linear-gradient(transparent 31px, rgba(0, 0, 0, 0.04) 32px),
+      linear-gradient(90deg, transparent 31px, rgba(0, 0, 0, 0.04) 32px);
+    background-size: 32px 32px;
+  }
 }

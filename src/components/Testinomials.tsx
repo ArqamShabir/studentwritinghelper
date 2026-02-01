@@ -1,6 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import { Star } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -8,31 +9,35 @@ const testimonials = [
   {
     name: "Lukas S.",
     review:
-      "Student Writing Helper made my life easier! The GPA calculator is so accurate and easy to use and pleasent design.",
+      "Student Writing Helper made my life easier. The GPA calculator is fast and the design feels professional.",
     rating: 5,
   },
   {
     name: "Felix",
     review:
-      "I love the tools on this website. The UI is very clean, and the tools work flawlessly! Highly Recommended",
+      "I love the tools on this website. The UI is clean and the results are reliable.",
     rating: 5,
   },
   {
     name: "Zara K.",
     review:
-      "This platform is a lifesaver! The calculators are fast, and I use them daily for my studies and other works.",
-    rating: 4.5,
+      "This platform is a lifesaver. The calculators are fast, and I use them daily.",
+    rating: 4,
   },
 ];
 
 const Testimonials = () => {
   return (
-    <div className="bg-gray-50">
-    <section className="py-16 px-6 bg-gray-50 mx-auto max-w-[1440px]">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-          What Our Users Say
-        </h2>
+    <div className="bg-sand-50">
+      <section className="mx-auto max-w-[1440px] px-6 py-16 lg:px-20">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-ink-900 md:text-4xl">
+            What Our Users Say
+          </h2>
+          <p className="mt-3 text-ink-600">
+            Trusted by students, professionals, and planners.
+          </p>
+        </div>
 
         <Swiper
           spaceBetween={20}
@@ -48,23 +53,23 @@ const Testimonials = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index} className="p-4">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <p className="text-gray-700 italic">"{testimonial.review}"</p>
-                <div className="mt-4 flex justify-center">
-                  {Array.from({ length: Math.floor(testimonial.rating) }).map((_, i) => (
-                    <span key={i} className="text-yellow-500 text-xl">★</span>
-                  ))}
-                  {testimonial.rating % 1 !== 0 && (
-                    <span className="text-yellow-500 text-xl">☆</span>
+              <div className="rounded-2xl border border-sand-200 bg-white p-6 shadow-soft">
+                <p className="text-sm text-ink-600">"{testimonial.review}"</p>
+                <div className="mt-4 flex justify-center gap-1">
+                  {Array.from({ length: Math.floor(testimonial.rating) }).map(
+                    (_, i) => (
+                      <Star key={i} size={18} className="text-amber-500" />
+                    )
                   )}
                 </div>
-                <p className="mt-2 text-gray-900 font-semibold">{testimonial.name}</p>
+                <p className="mt-3 text-ink-900 font-semibold">
+                  {testimonial.name}
+                </p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };

@@ -1,30 +1,59 @@
+import { Calculator, PenSquare, Sparkles, Share2 } from "lucide-react";
+
 const HowItWorks = () => {
-    const steps = [
-      { title: "Select a Calculator", desc: "Choose from a variety of student tools.", icon: "📌" },
-      { title: "Enter Your Data", desc: "Fill in the required details accurately.", icon: "✏️" },
-      { title: "Get Instant Results", desc: "See the calculated results in seconds.", icon: "⚡" },
-      { title: "Save & Share", desc: "Download or share your results easily.", icon: "📤" },
-    ];
-  
-    return (
-        <div className="bg-gray-100">
-      <section className="py-16 px-6 bg-gray-100 mx-auto max-w-[1440px]">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">How It Works</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <div key={index} className="bg-white p-6 shadow-md rounded-xl">
-                <div className="text-4xl">{step.icon}</div>
-                <h3 className="text-xl font-semibold mt-4">{step.title}</h3>
-                <p className="text-gray-600 mt-2">{step.desc}</p>
+  const steps = [
+    {
+      title: "Select a Calculator",
+      desc: "Choose from finance, math, health, or home tools.",
+      icon: <Calculator size={28} className="text-ink-900" />,
+    },
+    {
+      title: "Enter Your Data",
+      desc: "Input values with smart validation and guidance.",
+      icon: <PenSquare size={28} className="text-ink-900" />,
+    },
+    {
+      title: "Get Instant Results",
+      desc: "Accurate results with explanations and formulas.",
+      icon: <Sparkles size={28} className="text-ink-900" />,
+    },
+    {
+      title: "Save & Share",
+      desc: "Use outputs in assignments or planning.",
+      icon: <Share2 size={28} className="text-ink-900" />,
+    },
+  ];
+
+  return (
+    <div className="bg-white">
+      <section className="mx-auto max-w-[1440px] px-6 py-16 lg:px-20">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-ink-900 md:text-4xl">
+            How It Works
+          </h2>
+          <p className="mt-3 text-ink-600">
+            Built to be clear, quick, and trustworthy in every step.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-4">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-sand-200 bg-sand-50 p-6 text-left shadow-soft"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white">
+                {step.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="mt-4 text-lg font-semibold text-ink-900">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm text-ink-600">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
-      </div>
-    );
-  };
-  
-  export default HowItWorks;
-  
+    </div>
+  );
+};
+
+export default HowItWorks;

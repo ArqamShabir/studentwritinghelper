@@ -1,42 +1,56 @@
 import Image from "next/image";
-    const SeoSection = () => {
-      return (
-        <div className="bg-gray-50 w-full">
-        <section className="py-8 px-5 bg-gray-50 mx-auto max-w-[1440px] md:py-16 px-12">
-          <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-            
-            {/* Left: Text Content */}
-            <div className="md:w-1/2 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-                Your Academic Assistant
-              </h2>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Student Writing Helper provides essential tools like GPA calculators, scientific 
-                calculators, and paraphrasing tools to assist students in their academic journey. 
-                Our goal is to make studying easier with simple and accurate tools.
-              </p>
-              <p className="mt-2 text-gray-600 leading-relaxed">
-                Join thousands of students who use our platform daily to improve their academic 
-                performance effortlessly.
-              </p>
+
+const SeoSection = () => {
+  return (
+    <div className="bg-white">
+      <section className="mx-auto max-w-[1440px] px-6 py-16 lg:px-20">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_480px] lg:items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-ink-600">
+              Built for SEO
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold text-ink-900 md:text-4xl">
+              Content depth that ranks, design that converts.
+            </h2>
+            <p className="mt-4 text-ink-600">
+              Each calculator is structured for search engines with clean
+              metadata, internal links, and FAQ schema, while staying lightweight
+              and fast for users.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-sand-200 bg-sand-50 p-4">
+                <p className="text-lg font-semibold text-ink-900">Structured</p>
+                <p className="text-sm text-ink-600">
+                  Metadata and schema on every calculator page.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-sand-200 bg-sand-50 p-4">
+                <p className="text-lg font-semibold text-ink-900">Readable</p>
+                <p className="text-sm text-ink-600">
+                  Clean UI that keeps users engaged longer.
+                </p>
+              </div>
             </div>
-    
-            {/* Right: Image */}
-            <div className="md:w-1/2 flex justify-center">
+          </div>
+
+          <div className="relative">
+            <div className="absolute -top-6 left-6 h-16 w-16 rounded-full bg-[#f3c48d]" />
+            <div className="absolute -bottom-8 right-8 h-24 w-24 rounded-full bg-[#c7b6ff]" />
+            <div className="relative overflow-hidden rounded-[28px] border border-sand-200 bg-white p-3 shadow-card">
               <Image
-                src="/featuredImage.jpg" 
+                src="/featuredImage.jpg"
                 alt="Student Writing Helper"
                 width={500}
                 height={400}
-                className=""
+                className="rounded-[22px] object-cover"
               />
             </div>
-    
           </div>
-        </section>
         </div>
-      );
-    };    
-  
-  export default SeoSection;
+      </section>
+    </div>
+  );
+};
+
+export default SeoSection;
   

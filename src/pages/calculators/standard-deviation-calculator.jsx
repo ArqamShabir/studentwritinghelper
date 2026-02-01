@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Image from 'next/image';
-import Head from "next/head";
+import Image from "next/image";
+import SeoHead from "@/components/SeoHead";
+import CalculatorSidebar from "@/components/CalculatorSidebar";
 
 export default function Calculator() {
   const [numbers, setNumbers] = useState("");
@@ -47,7 +48,7 @@ export default function Calculator() {
 
     let stepsBreakdown = squaredDifferences.map((diff, i) => (
       <span key={i}>
-        ({values[i]} - {mean.toFixed(2)})²
+        ({values[i]} - {mean.toFixed(2)})^2
         {i < squaredDifferences.length - 1 && " + "}
       </span>
     ));
@@ -59,7 +60,7 @@ export default function Calculator() {
           <table cellPadding="0" cellSpacing="0">
             <tbody>
               <tr>
-                <td align="center">Σ(x<sub>i</sub> - x̄)<sup>2</sup></td>
+                <td align="center">Sum(x<sub>i</sub> - x_bar)<sup>2</sup></td>
               </tr>
               <tr>
                 <td height="1" className="border-t border-black"></td>
@@ -114,7 +115,7 @@ export default function Calculator() {
       <tr key="sqrt">
         <td nowrap="true">s =&nbsp;</td>
         <td>
-          √<span style={{ textDecoration: "overline" }}>{variance.toFixed(6)}</span>
+          sqrt<span style={{ textDecoration: "overline" }}>{variance.toFixed(6)}</span>
         </td>
       </tr>,
       <tr key="final">
@@ -134,19 +135,35 @@ export default function Calculator() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
-      <Head>
-  <title>Standard Deviation Calculator - Quick & Accurate With Steps</title>
-  <meta name="description" content="Easily calculate population and sample standard deviation with step-by-step explanations. Enter your numbers and get accurate results instantly!" />
-  <meta name="keywords" content="standard deviation calculator, variance calculator, mean deviation, statistics, data analysis" />
-  <link rel="canonical" href="https://studentwritinghelper.com/calculators/standard-deviation-calculator" />
-  <meta name="google-adsense-account" content="ca-pub-2897420441745530"/>
-</Head>
+      <SeoHead
+        title="Standard Deviation Calculator - Quick and Accurate"
+        description="Calculate population and sample standard deviation with step-by-step explanations. Enter your numbers and get accurate results instantly."
+        canonicalPath="/calculators/standard-deviation-calculator"
+        keywords="standard deviation calculator, variance calculator, statistics, data analysis"
+        faqItems={[
+          {
+            question: "What is standard deviation?",
+            answer:
+              "Standard deviation measures how spread out values are in a data set.",
+          },
+          {
+            question: "What is the difference between population and sample?",
+            answer:
+              "Population uses all data points. Sample uses n-1 to account for estimation.",
+          },
+          {
+            question: "What input format should I use?",
+            answer:
+              "Enter values separated by commas, such as 10, 12, 15.",
+          },
+        ]}
+      />
     <main className="max-w-lg w-full p-5 bg-white">
       <h1 className="text-2xl font-semibold mb-4">Standard Deviation Calculator</h1>
       <input
         type="text"
         placeholder="Enter numbers, comma-separated"
-        className="w-full p-2 border rounded-md text-sm md:text-base"
+        className="w-full p-2 border rounded-lg text-sm md:text-base"
         value={numbers}
         onChange={(e) => setNumbers(e.target.value)}
       />
@@ -161,10 +178,10 @@ export default function Calculator() {
           <span className="ml-2">Sample</span>
         </label>
       </div>
-      <button className="w-full bg-gray-900 cursor-pointer text-white py-2 rounded-md active:scale-95 transition transform duration-150" onClick={calculate}>Calculate</button>
+      <button className="w-full bg-gray-900 cursor-pointer text-white py-2 rounded-lg active:scale-95 transition transform duration-150" onClick={calculate}>Calculate</button>
 
       {result && (
-        <div className="mt-4 p-3 bg-gray-100 rounded-md">
+        <div className="mt-4 p-3 bg-gray-100 rounded-lg">
           <p><strong>Mean:</strong> {result.mean}</p>
           <p><strong>Variance:</strong> {result.variance}</p>
           <p><strong>Standard Deviation:</strong> {result.stdDev}</p>
@@ -206,7 +223,7 @@ export default function Calculator() {
       <div className="max-w-3xl mx-auto py-6 text-gray-800">
       <h2 className="text-2xl font-bold mb-6">Understanding Standard Deviation</h2>
       <p className="mb-4">
-        Standard deviation, commonly represented as <b>&#963;</b>, is a statistical measure that quantifies how much individual values in a dataset deviate from the mean (<b>&mu;</b>). A smaller standard deviation means data points are closer to the mean, while a larger one indicates greater variability. It plays a crucial role in fields like finance, quality control, and scientific research.
+        Standard deviation, commonly represented as <b>sigma</b>, is a statistical measure that quantifies how much individual values in a dataset deviate from the mean (<b>&mu;</b>). A smaller standard deviation means data points are closer to the mean, while a larger one indicates greater variability. It plays a crucial role in fields like finance, quality control, and scientific research.
       </p>
       
       <h2 className="text-2xl font-semibold mt-6">Population Standard Deviation</h2>
@@ -230,8 +247,8 @@ export default function Calculator() {
       </p>
       <p className="text-center font-mono text-lg mt-2">
         Mean: (2+5+7+10+12) / 5 = 7.2<br/>
-        &#963; = &radic;<span className="underline">[(2 - 7.2)<sup>2</sup> + (5 - 7.2)<sup>2</sup> + ... + (12 - 7.2)<sup>2</sup>]/5</span><br/>
-        &#963; ≈ 3.87
+        sigma = &radic;<span className="underline">[(2 - 7.2)<sup>2</sup> + (5 - 7.2)<sup>2</sup> + ... + (12 - 7.2)<sup>2</sup>]/5</span><br/>
+        sigma ~ 3.87
       </p>
 
       <h2 className="text-2xl font-semibold mt-6">Sample Standard Deviation</h2>
@@ -265,6 +282,7 @@ export default function Calculator() {
       </p>
     </div>
     </main>
+    <CalculatorSidebar currentSlug="standard-deviation-calculator" />
     <div className="w-full lg:w-1/2  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
         <h2 className="text-xl font-semibold mb-4">Recommended Calculators</h2>
         <ul className="space-y-2 text-blue-600">

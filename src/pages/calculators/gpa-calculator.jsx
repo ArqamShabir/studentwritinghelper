@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Head from "next/head";
+import SeoHead from "@/components/SeoHead";
+import CalculatorSidebar from "@/components/CalculatorSidebar";
 
 const GPACalculator = () => {
   const [grades, setGrades] = useState([
@@ -121,19 +122,29 @@ const GPACalculator = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
-       <Head>
-        <title>GPA Calculator - Free Online GPA Calculator</title>
-        <meta
-          name="description"
-          content="Easily calculate your GPA with our free online GPA calculator. Enter your grades and credits to get an accurate GPA instantly."
-        />
-        <meta property="og:title" content="GPA Calculator - Free Online GPA Calculator" />
-        <meta property="og:description" content="Enter your grades and credits to calculate your GPA accurately and quickly." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://studentwritinghelper.com/gpa-calculator" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="google-adsense-account" content="ca-pub-2897420441745530"/>
-      </Head>
+       <SeoHead
+        title="GPA Calculator - Free Online GPA Calculator"
+        description="Easily calculate your GPA with our free online GPA calculator. Enter your grades and credits to get an accurate GPA instantly."
+        canonicalPath="/calculators/gpa-calculator"
+        keywords="gpa calculator, grade point average, cgpa, credit hours"
+        faqItems={[
+          {
+            question: "How is GPA calculated?",
+            answer:
+              "GPA is calculated by dividing total grade points by total credit hours.",
+          },
+          {
+            question: "Can I include previous GPA?",
+            answer:
+              "Yes. Enable the overall CGPA option to add previous GPA and credits.",
+          },
+          {
+            question: "What grading scale is supported?",
+            answer:
+              "The calculator uses a standard U.S. letter grade scale from A+ to F.",
+          },
+        ]}
+      />
     <main className="flex-1 p-6 bg-white">
       <h1 className="text-3xl font-bold mb-4">GPA Calculator</h1>
       <p className="mb-4 text-gray-700">
@@ -251,13 +262,13 @@ const GPACalculator = () => {
 <div className="flex gap-2">
       <button
         onClick={addRow}
-        className="bg-gray-900 hover:bg-gray-700 text-white text-sm px-3 py-3 rounded-md cursor-pointer"
+        className="bg-gray-900 hover:bg-gray-700 text-white text-sm px-3 py-3 rounded-lg cursor-pointer"
       >
         Add Course
       </button>
       <button
         onClick={calculateGPA}
-        className="bg-green-500 hover:bg-green-700 text-white text-sm px-3 py-3 rounded-md cursor-pointer"
+        className="bg-green-500 hover:bg-green-700 text-white text-sm px-3 py-3 rounded-lg cursor-pointer"
       >
         Calculate GPA
       </button>
@@ -382,30 +393,22 @@ const GPACalculator = () => {
       <div className="pt-10 max-w-2xl bg-white">
       <h2 className="text-3xl font-bold mb-4 text-gray-900">Tips for Improving Your GPA</h2>
 
-<p>There’s no one-size-fits-all approach to boosting your GPA, and what works for one person might not work for another. That said, there are some key habits and strategies that can generally help when working towards a higher GPA. While these tips are based on personal experiences and aren't foolproof, they can be beneficial for enhancing your learning, which could, in turn, improve your grades.</p>
+<p>There is no one-size-fits-all approach to boosting your GPA, and what works for one person might not work for another. That said, there are some key habits and strategies that can generally help when working toward a higher GPA. While these tips are based on personal experiences and are not foolproof, they can be beneficial for enhancing your learning, which could, in turn, improve your grades.</p>
 
 <h3 className="text-xl font-bold my-4 text-gray-900">Be Present in Class:</h3>
-<p>Classes are an investment—whether paid for by you or your parents. Missing classes is not only a waste of that investment but also a missed opportunity for learning. Even if you feel that attending a class isn’t helping or the professor isn’t great, there’s often valuable information shared simply by being there. For example, if you skip class, you might miss important announcements, like changes to exam locations or materials, which could negatively affect your GPA.</p>
-<p>It’s also important to note that while professors often post lecture notes online, attending class gives you the chance to hear student questions and explanations that could provide valuable insights. These moments can clarify important concepts and may even be the key to doing better on exams. Interacting with the professor and your peers can help deepen your understanding of the subject and might give you that extra little detail that makes a big difference on tests.</p>
+<p>Classes are an investment, whether paid for by you or your parents. Missing classes is not only a waste of that investment but also a missed opportunity for learning. Even if you feel that attending a class is not helping or the professor is not great, there is often valuable information shared simply by being there. For example, if you skip class, you might miss important announcements, like changes to exam locations or materials, which could negatively affect your GPA.</p>
+<p>It is also important to note that while professors often post lecture notes online, attending class gives you the chance to hear student questions and explanations that could provide valuable insights. These moments can clarify important concepts and may even be the key to doing better on exams. Interacting with the professor and your peers can help deepen your understanding of the subject and might give you that extra little detail that makes a big difference on tests.</p>
 <p>Additionally, regular class attendance, especially in smaller classes, allows professors to recognize you. This can work in your favor if you encounter issues like missed deadlines due to emergencies. Professors are often more understanding of students they know are engaged and proactive. Active participation helps you stay engaged with the material in a way that reading notes or textbooks may not. You can also get immediate clarification on topics you're confused about, which could have a direct impact on your GPA.</p>
 
 <h3 className="text-xl font-bold my-4 text-gray-900">Plan and Organize Your Time:</h3>
-<p>Every student learns differently. Some prefer to work for long stretches at a time, while others prefer frequent breaks. There’s no perfect method; it’s about finding what works best for you based on your learning style, schedule, and preferences. The key to success is using your time effectively, which can improve learning and, ultimately, your GPA.</p>
-<p>Organization is a big part of this. It’s not just about taking notes, but also about being able to find them when you need them. Notes are most valuable when they can be easily referenced to help reinforce what you've learned. Professors typically present a lot of information, and you may not have time to absorb everything in class. Practicing effective note-taking can help you retain and access information when you need it most.</p>
-<p>Effective time management also plays a huge role in planning. With only 24 hours in a day, it’s crucial to make sure you’re using your time wisely. Taking on too many courses or extracurricular activities can overwhelm you, leading to stress and potentially lower grades. Once you know what your schedule looks like, planning your workload for each course can make a big difference in managing stress and maximizing productivity. When you break down your tasks, it becomes easier to see whether you’ve taken on more than you can handle.</p>
-<p>Another key aspect of time management is reviewing your work regularly. Instead of cramming everything right before an exam, spreading out your study sessions over time is usually more effective. Periodic review of the material will help reinforce what you’ve learned, save you time, and improve your performance on exams, leading to a better GPA.</p>
+<p>Every student learns differently. Some prefer to work for long stretches at a time, while others prefer frequent breaks. There is no perfect method; it is about finding what works best for you based on your learning style, schedule, and preferences. The key to success is using your time effectively, which can improve learning and, ultimately, your GPA.</p>
+<p>Organization is a big part of this. It is not just about taking notes, but also about being able to find them when you need them. Notes are most valuable when they can be easily referenced to help reinforce what you have learned. Professors typically present a lot of information, and you may not have time to absorb everything in class. Practicing effective note-taking can help you retain and access information when you need it most.</p>
+<p>Effective time management also plays a huge role in planning. With only 24 hours in a day, it is crucial to make sure you are using your time wisely. Taking on too many courses or extracurricular activities can overwhelm you, leading to stress and potentially lower grades. Once you know what your schedule looks like, planning your workload for each course can make a big difference in managing stress and maximizing productivity. When you break down your tasks, it becomes easier to see whether you have taken on more than you can handle.</p>
+<p>Another key aspect of time management is reviewing your work regularly. Instead of cramming everything right before an exam, spreading out your study sessions over time is usually more effective. Periodic review of the material will help reinforce what you have learned, save you time, and improve your performance on exams, leading to a better GPA.</p>
 
       </div>
     </main>
-    <div className="w-full lg:w-1/4  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
-        <h2 className="text-xl font-semibold mb-4">Recommended Calculators</h2>
-        <ul className="space-y-2 text-blue-600">
-          <li><a href="#" className="hover:underline">CGPA Calculator</a></li>
-          <li><a href="#" className="hover:underline">Weighted GPA Calculator</a></li>
-          <li><a href="#" className="hover:underline">Final Grade Calculator</a></li>
-          <li><a href="#" className="hover:underline">Backlog GPA Estimator</a></li>
-        </ul>
-      </div>
+    <CalculatorSidebar currentSlug="gpa-calculator" />
     </div>
   );
 };

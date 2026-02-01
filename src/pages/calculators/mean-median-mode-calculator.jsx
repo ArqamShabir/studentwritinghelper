@@ -1,6 +1,7 @@
     import { useState } from "react";
     import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from "recharts";
-    import Head from "next/head";
+    import SeoHead from "@/components/SeoHead";
+    import CalculatorSidebar from "@/components/CalculatorSidebar";
 
     export default function MeanMedianModeCalculator() {
     const [numbers, setNumbers] = useState("");
@@ -49,18 +50,29 @@
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-4 max-w-screen-xl mx-auto">
-          <Head>
-        <title>Mean, Median, Mode Calculator - Free Online Tool</title>
-        <link rel="canonical" href="https://studentwritinghelper.com/calculators/mean-median-mode-calculator" />
-        <meta 
-          name="description" 
-          content="Calculate mean, median, mode, range, and geometric mean easily with our online Mean, Median, Mode Calculator. Get instant results with a user-friendly interface." 
-        />
-          <meta name="keywords" content="binary converter, decimal to binary, hex converter, octal converter, number system converter, free tool" />
-          <meta name="author" content="Student Writing Helper" />
-          <meta name="google-adsense-account" content="ca-pub-2897420441745530" />
-        
-      </Head>
+          <SeoHead
+        title="Mean, Median, Mode Calculator - Free Online Tool"
+        description="Calculate mean, median, mode, range, and geometric mean easily with our online Mean, Median, Mode Calculator. Get instant results with a user-friendly interface."
+        canonicalPath="/calculators/mean-median-mode-calculator"
+        keywords="mean median mode calculator, statistics, range, geometric mean"
+        faqItems={[
+          {
+            question: "What is mean, median, and mode?",
+            answer:
+              "Mean is the average, median is the middle value, and mode is the most frequent value.",
+          },
+          {
+            question: "Can a data set have no mode?",
+            answer:
+              "Yes. If every value appears the same number of times, there is no mode.",
+          },
+          {
+            question: "What is range?",
+            answer:
+              "Range is the difference between the largest and smallest values.",
+          },
+        ]}
+      />
         <div className="p-6 w-full max-w-2xl">
           <h1 className="text-2xl font-bold md:text-3xl">Mean, Median, Mode Calculator</h1>
           <div className="py-6 bg-white">
@@ -69,9 +81,9 @@
               placeholder="Enter comma separated values"
               value={numbers}
               onChange={(e) => setNumbers(e.target.value)}
-              className="p-2 border border-gray-300 rounded-md w-full text-sm md:text-base focus:outline-none focus:ring-0 focus:border-gray-400"
+              className="p-2 border border-gray-300 rounded-lg w-full text-sm md:text-base focus:outline-none focus:ring-0 focus:border-gray-400"
             />
-            <button className="w-full bg-gray-900 cursor-pointer text-white py-2 rounded-md mt-4 active:scale-95 transition transform duration-150" onClick={calculateStats}>
+            <button className="w-full bg-gray-900 cursor-pointer text-white py-2 rounded-lg mt-4 active:scale-95 transition transform duration-150" onClick={calculateStats}>
               Calculate
             </button>
             {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
@@ -139,10 +151,10 @@
           The formula for calculating the arithmetic mean is:
         </p>
         <div className="bg-gray-100 p-4 rounded-lg text-gray-800 text-lg font-mono text-center my-4">
-          Mean = (ΣX) / N
+          Mean = (sum of values) / N
         </div>
         <p className="text-gray-600 leading-relaxed">
-          Where ΣX is the sum of all values and N is the total number of values in the data set.
+          N is the total number of values in the data set.
         </p>
       </section>
       
@@ -194,15 +206,7 @@
       </p>
     </div>
           </div>
-            <div className="w-full lg:w-1/2  bg-gray-100 p-4 shadow-md rounded-xl h-fit " style={{visibility:'hidden', height:'0'}}>
-        <h3 className="text-xl font-semibold mb-4">Recommended Calculators</h3>
-        <ul className="space-y-2 text-blue-600">
-          <li><a href="#" className="hover:underline">CGPA Calculator</a></li>
-          <li><a href="#" className="hover:underline">Weighted GPA Calculator</a></li>
-          <li><a href="#" className="hover:underline">Final Grade Calculator</a></li>
-          <li><a href="#" className="hover:underline">Backlog GPA Estimator</a></li>
-        </ul>
-      </div>
+            <CalculatorSidebar currentSlug="mean-median-mode-calculator" />
         
         </div>
       );
