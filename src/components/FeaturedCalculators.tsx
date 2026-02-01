@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type React from "react";
 import {
   Calculator,
   BarChart,
@@ -15,7 +16,7 @@ import {
 } from "lucide-react";
 import { calculators, getCalculatorUrl } from "@/data/calculators";
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.ReactNode> = {
   "gpa-calculator": <BarChart size={40} className="text-green-500" />,
   "scientific-calculator": <Calculator size={40} className="text-blue-500" />,
   "binary-to-decimal-converter": <Binary size={40} className="text-yellow-500" />,
